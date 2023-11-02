@@ -1,0 +1,90 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-grey-dark;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  /* some thimes animations sakes littel bit to top or bottom using this that can be stoped still sont know why it is like that */
+  /* when we rotate any element 180 deg we probaly see its back side to hide that back side this propert " backface-visibility " is used */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+  &--main {
+    display: block;
+    letter-spacing: 3.5rem;
+    font-size: 6rem;
+    font-weight: 400;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* animation-delay: 2s;
+        animation-iteration-count: 3; */
+
+    @include respond(tab-port) {
+      font-size: 5.5rem;
+      letter-spacing: 3rem;
+    }
+    @include respond(phone) {
+      font-size: 4.5rem;
+      letter-spacing: 2rem;
+    }
+  }
+
+  &--sub {
+    display: block;
+    letter-spacing: 1.75rem;
+    font-size: 2rem;
+    font-weight: 700;
+    animation: moveInRight 1s ease-out;
+    @include respond(tab-port) {
+      letter-spacing: 1.4rem;
+    }
+    @include respond(phone) {
+      font-size: 1.8rem;
+      letter-spacing: 0.9rem;
+    }
+  }
+}
+
+.heading-secondary {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  transition: all 0.2s;
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+  letter-spacing: 0.2rem;
+
+  @include respond(tab-port) {
+    font-size: 2.5rem;
+  }
+  @include respond(phone) {
+    font-size: 2rem;
+  }
+}
+
+.heading-tertiary {
+  text-transform: uppercase;
+  font-size: $default-font-size;
+  font-weight: 700;
+}
+.peregraph {
+  font-size: $default-font-size;
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

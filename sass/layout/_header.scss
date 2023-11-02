@@ -1,0 +1,73 @@
+.header {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/hero-small.jpg");
+  height: 95vh;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+  background-size: cover;
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url("../img/hero.jpg");
+  }
+
+  @include respond(tab-land) {
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  }
+  @include respond(tab-port) {
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 3rem;
+  }
+  &__logo-box::after,
+  &__logo-box::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -2.5rem;
+    left: 1rem;
+    border-radius: 100%;
+    width: 9rem;
+    height: 9rem;
+  }
+
+  &__logo-box::before {
+    animation: blink 1s ease-in-out infinite alternate;
+  }
+
+  &__logo-box::after {
+    animation: blink 1s 0.3s ease-in-out infinite alternate;
+  }
+
+  &__logo {
+    height: 3.5rem;
+    // scale: 3;
+    position: absolute;
+    top: 0.5rem;
+    left: 2rem;
+    mix-blend-mode: color-dodge;
+    transition: scale 0.3s;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
